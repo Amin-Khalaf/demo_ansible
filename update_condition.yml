@@ -1,0 +1,15 @@
+---
+# un playbook est tableau de plays
+
+- name: test play
+  hosts: all
+
+  tasks:
+
+    - shell: cat /etc/motd
+      register: motd_contents
+
+    - shell: echo "motd contains the word PROGRAMS"
+      when: motd_contents.stdout.find('program') != -1
+
+
