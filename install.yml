@@ -1,0 +1,29 @@
+---
+# un playbook est tableau de plays
+
+- hosts: all
+  tasks: 
+    - name: Install Vim everywhere !
+      apt:
+         name: vim
+         state: present
+    - name: Install TMUX everywhere
+      apt: 
+        name: tmux
+        state: present
+
+- hosts: app
+  tasks:
+    - name: Install Apache everywhere !
+      apt:
+        name: apache2
+        state: present
+
+
+- hosts: bdd
+  tasks:
+    - name: Install Maria-db everywhere !
+      apt:
+        name: mariadb-server
+        state: present
+
